@@ -13,7 +13,7 @@ except Exception as e:
 
 app = Flask(__name__)
 sess=Session()
-
+'''
 urlparse.uses_netloc.append("postgres")
 url = urlparse.urlparse(os.environ["DATABASE_URL"])
 
@@ -78,7 +78,7 @@ def project_register():
 			slack_notification(error_msg)
 			return render_template('index.html' , flag="True" ,msg="Registration Failed !")
 
-
+'''
 @app.route("/")
 def main():
 	return render_template('index.html')
@@ -106,4 +106,4 @@ app.config['SESSION_TYPE'] = 'filesystem'
 
 sess.init_app(app)
 app.debug = True
-#app.run()
+app.run()
